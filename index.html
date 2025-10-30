@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mohamed Alae Bahrar – Portfolio</title>
+  <meta name="description" content="Engineering course, mobility, career, civic engagement & other activities." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0c0f;--bg2:#0f1117;--surface:#12141a;--muted:#a7adbe;--text:#e8e9ee;--brand:#0f6b57;--brand-2:#53b29b;
+      --card:#111419;--line:#203040;--ring:#2b90d9
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial; color:var(--text); background:linear-gradient(180deg,var(--bg) 0%,#0e1218 100%)}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1200px;margin:0 auto;padding:24px}
+    /* Header */
+    header{position:sticky;top:0;z-index:40;background:rgba(11,12,15,.72);backdrop-filter:blur(8px);border-bottom:1px solid #1b2230}
+    .top{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+    .brand{display:flex;gap:10px;align-items:center}
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--brand-2)}
+    .brand h1{font-size:18px;margin:0;font-weight:800;letter-spacing:.2px}
+    nav{display:flex;gap:22px;align-items:center}
+    nav a{font-size:13px;letter-spacing:.04em;color:#d7dbe9;opacity:.85;border-bottom:2px solid transparent;padding:8px 0}
+    nav a.active{color:#eaf2ff;border-color:var(--brand-2)}
+    .lang{display:flex;gap:6px;margin-left:8px}
+    .lang button{cursor:pointer;background:#0f1117;border:1px solid #263246;color:#cfd6e8;padding:6px 10px;border-radius:999px;font-size:12px}
+    .lang button.active{outline:2px solid var(--ring);color:#fff}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:center;padding:28px 0}
+    .hero-card{background:linear-gradient(180deg,#0f1117 0%,#0c1016 100%);border:1px solid #1f2733;border-radius:18px;padding:18px}
+    .chip{display:inline-block;border:1px solid #2b2f3a;color:#a9adba;padding:6px 10px;border-radius:999px;font-size:12px}
+    .title{font-family:"Playfair Display",serif;font-weight:800;letter-spacing:.2px;font-size:clamp(28px,5vw,44px);margin:6px 0 6px}
+    .lead{color:var(--muted);line-height:1.7}
+    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#0d1016;border:1px solid #2b2f3a;color:#e8e9ee;padding:10px 14px;border-radius:12px;font-weight:600}
+    .btn.primary{background:var(--brand);border-color:#0d5a4a}
+    .btn:hover{border-color:#3a79b3}
+
+    /* Sections as pages */
+    section.page{display:none;animation:.5s ease both fadeIn}
+    section.page.active{display:block}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+    .card{background:var(--card);border:1px solid #1c2332;border-radius:18px;padding:22px}
+    h2{font-family:"Playfair Display",serif;margin:0 0 10px;font-size:clamp(22px,3.5vw,34px)}
+    h3{margin:10px 0 6px;font-size:18px}
+    p{color:#c6ccda;line-height:1.75}
+    .cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .mono{font-family:ui-monospace,Menlo,Consolas,monospace}
+
+    /* Timeline grid blocks */
+    .grid-blocks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .block{border:1px dashed #2b3750;border-radius:14px;padding:12px}
+    .badge{display:inline-block;background:#0f6b5715;border:1px solid #0f6b57;color:#bae5da;padding:4px 8px;border-radius:999px;font-size:12px;margin-right:6px}
+
+    /* Media */
+    video{width:100%;border-radius:14px;border:1px solid #1c2332;background:#0a0d13}
+
+    footer{border-top:1px solid #1b2230;color:#9aa1b5;margin-top:26px;padding:20px 24px;text-align:center;font-size:13px}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}.cols{grid-template-columns:1fr}.grid-blocks{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="top">
+      <div class="brand"><span class="dot"></span><h1>Mohamed Alae Bahrar</h1><span class="chip" id="role">Student Engineer</span></div>
+      <nav id="nav">
+        <a href="#engineering" data-page="engineering" class="active">ENGINEERING COURSE</a>
+        <a href="#mobility" data-page="mobility">INTERNATIONAL MOBILITY</a>
+        <a href="#career" data-page="career">CAREER</a>
+        <a href="#civic" data-page="civic">CIVIC ENGAGEMENT & LEADERSHIP</a>
+        <a href="#activities" data-page="activities">OTHER ACTIVITIES</a>
+      </nav>
+      <div class="lang" aria-label="Language selector">
+        <button id="btn-fr" type="button">FR</button>
+        <button id="btn-en" type="button" class="active">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <div class="hero">
+      <div>
+        <span class="chip" id="chip-loc">Toulouse, France</span>
+        <div class="title" id="hero-title">Welcome 👋</div>
+        <p class="lead" id="hero-lead">I love learning, improving and pushing my limits. I fully commit to what I undertake.</p>
+        <div class="actions">
+          <a class="btn primary" id="cta-contact" href="mailto:mohamedalaebahrar@gmail.com">Contact me</a>
+          <a class="btn" href="files/CV_FR.pdf" download id="cta-cv-fr">CV in French</a>
+          <a class="btn" href="files/CV_EN.pdf" download id="cta-cv-en">CV in English</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3 style="margin:0 0 8px">Links</h3>
+        <p class="mono">Email: <a href="mailto:mohamedalaebahrar@gmail.com">mohamedalaebahrar@gmail.com</a><br>
+        Tel: <a href="tel:+33744241848">+33 7 44 24 18 48</a></p>
+        <div class="actions">
+          <a class="btn" href="#" target="_blank">LinkedIn</a>
+          <a class="btn" href="#" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGES -->
+    <section id="engineering" class="page active">
+      <div class="card">
+        <h2>Engineering Course</h2>
+        <p>I'm currently studying for a diploma in electrical engineering. Every semester, we choose a specialization to deepen our skills in a specific field. This page will be updated every semester.</p>
+      </div>
+      <div class="cols" style="margin-top:16px">
+        <div class="card">
+          <h3>Semester 1</h3>
+          <ul>
+            <li>Soft and Human Skills (English, Spanish, Sport, Careers and Management)</li>
+            <li>Integration and Probabilities</li>
+            <li>Logic Circuit Design</li>
+            <li>Fundamentals of Circuits</li>
+            <li>Physics of Electricity</li>
+            <li>Informatics and Architecture</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Semester 2</h3>
+          <ul>
+            <li>Soft and Human Skills 2 (English, Spanish, Sport, Careers and Management)</li>
+            <li>Numerical Analysis and Statistics</li>
+            <li>Signal and Control Systems</li>
+            <li>Electrical Circuits and Systems</li>
+            <li>Components and Architectures</li>
+            <li>Connected Objects</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cols" style="margin-top:16px">
+        <div class="card">
+          <h3>Semester 3</h3>
+          <ul>
+            <li>Soft and Human Skills 3 (English, Spanish, Sport, Careers and Management)</li>
+            <li>RF Analog</li>
+            <li>Audio Frequency Analog</li>
+            <li>Digital</li>
+            <li>Electromagnetic Propagation</li>
+            <li>Information Processing</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Semester 4</h3>
+          <ul>
+            <li>Soft and Human Skills 4 (English, Spanish, Sport, Careers and Management)</li>
+            <li>Applied Mathematics</li>
+            <li>Digital Systems Architecture</li>
+            <li>Image Processing and Modeling</li>
+            <li>Signals and Filtering</li>
+            <li>Introduction to AI</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <h3>Semester 5 – Toulouse School of Management</h3>
+        <ul>
+          <li>Innovation Practices</li>
+          <li>Experiments for business and managerial decisions</li>
+          <li>Project Management</li>
+          <li>Innovation Strategy</li>
+          <li>Entrepreneurship</li>
+          <li>Finance</li>
+        </ul>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <h3>Semester 6</h3>
+        <p>Last year internship at Wavestone. I am working on their AI Security Solutions Radar.</p>
+      </div>
+    </section>
+
+    <section id="mobility" class="page">
+      <div class="card">
+        <h2>International Mobility</h2>
+        <p>As an international student in France, I value cultural openness and multilingual environments. I plan to pursue future mobility opportunities (double degrees, exchange semesters, research internships) to broaden my technical and human skills.</p>
+      </div>
+      <div class="grid-blocks" style="margin-top:16px">
+        <div class="block"><span class="badge">Goals</span>
+          <p>Strengthen English/Spanish, discover different research cultures, and build an international network in electronics/AI.</p>
+        </div>
+        <div class="block"><span class="badge">Targets</span>
+          <p>Europe (Germany, Netherlands), North America, and selective programs within the ENSEEIHT/INP network.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="career" class="page">
+      <div class="card">
+        <h2>Career</h2>
+        <p>My career plan combines engineering rigor and data‑driven thinking. I enjoy applied math, signal processing and systems, and I’m attracted to projects where optimization meets real‑world impact.</p>
+        <div class="actions" style="margin-top:10px">
+          <a class="btn" href="files/CV_FR.pdf" download>📄 CV – French</a>
+          <a class="btn" href="files/CV_EN.pdf" download>📄 CV – English</a>
+        </div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <h3>4‑minute intro video</h3>
+        <video controls preload="metadata" src="files/intro.mp4"></video>
+        <p class="mono" style="color:#9fb0c9;margin-top:6px">Place your file at <code>files/intro.mp4</code> (≤ 4 min).</p>
+      </div>
+    </section>
+
+    <section id="civic" class="page">
+      <div class="card">
+        <h2>Civic Engagement & Leadership</h2>
+        <p>I believe in useful, concrete actions. Recent involvements include:</p>
+        <ul>
+          <li>Peer‑mentoring for new students (orientation, study methods, exam prep).</li>
+          <li>Health‑quality awareness inspired by my MQSS training (risk mapping basics, patient journey focus).</li>
+          <li>Student community support: organizing revision groups and sports activities to promote well‑being.</li>
+        </ul>
+        <p>Leadership for me = clarity, responsibility, and service to the team.</p>
+      </div>
+    </section>
+
+    <section id="activities" class="page">
+      <div class="card">
+        <h2>Other Activities</h2>
+        <div class="cols">
+          <div>
+            <h3>Sports</h3>
+            <p>Football, swimming and cycling help me keep discipline and balance. I also train strength 4–5 times/week.</p>
+            <h3>Music</h3>
+            <p>Guitar is my creative space. My TIPE explores a probabilistic model to optimize the emotional impact of chord transitions.</p>
+          </div>
+          <div>
+            <h3>Side projects</h3>
+            <ul>
+              <li>Optical cryptography with fractal holography (FFT, PSNR/SSIM).</li>
+              <li>Small C game (Snake): menus, movement logic, and scoring.</li>
+            </ul>
+            <p>Curiosity drives me to mix electronics, math and software.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="year"></span> – Mohamed Alae Bahrar</footer>
+
+  <script>
+    const $ = (sel, all=false)=> all?document.querySelectorAll(sel):document.querySelector(sel);
+    const pages = $("section.page", true); const links = $("nav a", true);
+    function show(page){
+      pages.forEach(p=>p.classList.toggle('active', p.id===page));
+      links.forEach(a=>a.classList.toggle('active', a.dataset.page===page));
+      if(location.hash!==`#${page}`) history.replaceState(null, '', `#${page}`);
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+    links.forEach(a=>a.addEventListener('click',e=>{e.preventDefault();show(a.dataset.page)}));
+    window.addEventListener('hashchange',()=>{const p=location.hash.slice(1)||'engineering';show(p)});
+    show(location.hash.slice(1)||'engineering');
+
+    // Simple i18n
+    const t={
+      en:{role:'Student Engineer',loc:'Toulouse, France',welcome:'Welcome 👋',lead:'I love learning, improving and pushing my limits. I fully commit to what I undertake.',cvfr:'CV in French',cven:'CV in English',contact:'Contact me'},
+      fr:{role:'Étudiant ingénieur',loc:'Toulouse, France',welcome:'Bienvenue 👋',lead:"J’aime apprendre, évoluer et dépasser mes limites. Je m’investis pleinement dans ce que j’entreprends.",cvfr:'CV – Français',cven:'CV – Anglais',contact:'Me contacter'}
+    };
+    const setLang=(L)=>{document.getElementById('role').textContent=t[L].role;document.getElementById('chip-loc').textContent=t[L].loc;document.getElementById('hero-title').textContent=t[L].welcome;document.getElementById('hero-lead').textContent=t[L].lead;document.getElementById('cta-cv-fr').textContent=t[L].cvfr;document.getElementById('cta-cv-en').textContent=t[L].cven;document.getElementById('cta-contact').textContent=t[L].contact;document.getElementById('btn-en').classList.toggle('active',L==='en');document.getElementById('btn-fr').classList.toggle('active',L==='fr');document.documentElement.lang=L};
+    document.getElementById('btn-en').onclick=()=>setLang('en');
+    document.getElementById('btn-fr').onclick=()=>setLang('fr');
+    setLang('en');
+
+    document.getElementById('year').textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
