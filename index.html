@@ -71,7 +71,8 @@
     <div class="top">
       <div class="brand"><span class="dot"></span><h1>Mohamed Alae Bahrar</h1><span class="chip" id="role">Student Engineer</span></div>
       <nav id="nav">
-        <a href="#engineering" data-page="engineering" class="active">ENGINEERING COURSE</a>
+        <a href="#home" data-page="home" class="active">HOME</a>
+        <a href="#engineering" data-page="engineering">ENGINEERING COURSE</a>
         <a href="#mobility" data-page="mobility">INTERNATIONAL MOBILITY</a>
         <a href="#career" data-page="career">CAREER</a>
         <a href="#civic" data-page="civic">CIVIC ENGAGEMENT & LEADERSHIP</a>
@@ -102,17 +103,24 @@
         <p class="mono">Email: <a href="mailto:mohamedalaebahrar@gmail.com">mohamedalaebahrar@gmail.com</a><br>
         Tel: <a href="tel:+33744241848">+33 7 44 24 18 48</a></p>
         <div class="actions">
-          <a class="btn" href="#" target="_blank">LinkedIn</a>
+          <a class="btn" href="https://fr.linkedin.com/in/mohamed-alae-bahrar-07890b35b" target="_blank" rel="noopener">LinkedIn</a>
           <a class="btn" href="#" target="_blank">GitHub</a>
         </div>
       </div>
     </div>
 
     <!-- PAGES -->
-    <section id="engineering" class="page active">
+    <section id="home" class="page active">
+      <div class="card">
+        <h2>Welcome</h2>
+        <p>Thanks for visiting my ePortfolio. I’m an engineering student at ENSEEIHT (3EA). This website gathers my curriculum, international mobility goals, civic involvement and activities. Feel free to download my CVs (FR/EN) and reach out.</p>
+      </div>
+    </section>
+
+    <section id="engineering" class="page">
       <div class="card">
         <h2>Engineering Course</h2>
-        <p>I'm currently studying for a diploma in electrical engineering. Every semester, we choose a specialization to deepen our skills in a specific field. This page will be updated every semester.</p>
+        <p>I’m currently studying for a diploma in electrical engineering. We follow a common core covering all the subjects listed below; this page will be updated each semester.</p>
       </div>
       <div class="cols" style="margin-top:16px">
         <div class="card">
@@ -182,14 +190,14 @@
     <section id="mobility" class="page">
       <div class="card">
         <h2>International Mobility</h2>
-        <p>As an international student in France, I value cultural openness and multilingual environments. I plan to pursue future mobility opportunities (double degrees, exchange semesters, research internships) to broaden my technical and human skills.</p>
+        <p>As an international student in France, I value cultural openness and multilingual environments. Mobility opportunities include Europe (ERASMUS), Canada (Montréal, Québec, Sherbrooke) and the USA (Georgia Tech), via ENSEEIHT’s exchange and double‑degree agreements. I plan to apply in the coming semesters.</p>
       </div>
       <div class="grid-blocks" style="margin-top:16px">
         <div class="block"><span class="badge">Goals</span>
           <p>Strengthen English/Spanish, discover different research cultures, and build an international network in electronics/AI.</p>
         </div>
         <div class="block"><span class="badge">Targets</span>
-          <p>Europe (Germany, Netherlands), North America, and selective programs within the ENSEEIHT/INP network.</p>
+          <p>Europe (Erasmus), North America (selected partners such as Polytechnique Montréal, Université Laval, Sherbrooke) and US partner institutions.</p>
         </div>
       </div>
     </section>
@@ -204,7 +212,7 @@
         </div>
       </div>
       <div class="card" style="margin-top:16px">
-        <h3>4‑minute intro video</h3>
+        <h3>Video</h3>
         <video controls preload="metadata" src="files/intro.mp4"></video>
         <p class="mono" style="color:#9fb0c9;margin-top:6px">Place your file at <code>files/intro.mp4</code> (≤ 4 min).</p>
       </div>
@@ -219,7 +227,7 @@
           <li>Health‑quality awareness inspired by my MQSS training (risk mapping basics, patient journey focus).</li>
           <li>Student community support: organizing revision groups and sports activities to promote well‑being.</li>
         </ul>
-        <p>Leadership for me = clarity, responsibility, and service to the team.</p>
+        <p>Leadership to me means clarity, responsibility and service to the team. I plan to volunteer in education or digital inclusion when possible.</p>
       </div>
     </section>
 
@@ -258,8 +266,8 @@
       window.scrollTo({top:0,behavior:'smooth'});
     }
     links.forEach(a=>a.addEventListener('click',e=>{e.preventDefault();show(a.dataset.page)}));
-    window.addEventListener('hashchange',()=>{const p=location.hash.slice(1)||'engineering';show(p)});
-    show(location.hash.slice(1)||'engineering');
+    window.addEventListener('hashchange',()=>{const p=location.hash.slice(1)||'home';show(p)});
+    show(location.hash.slice(1)||'home');
 
     // Simple i18n
     const t={
